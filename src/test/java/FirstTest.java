@@ -1,28 +1,16 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class FirstTest {
-    WebDriver driver;
-    @BeforeMethod
-    public void setUp(){
-        driver=new ChromeDriver();
+public class FirstTest extends TestBase {
 
 
-    }
 
-    @Test
-    public  void openChromeTest(){
-        driver.get("https://www.youtube.com/");
 
-    }
+
 
     @Test
     public  void openWikipediaTest() throws InterruptedException {
-        driver.get("https://wikipedia.org/");
+        openSite("https://wikipedia.org/");
         Thread.sleep(5000);
         driver.findElement(By.id("searchInput")).click();
         driver.findElement(By.id("searchInput")).clear();
@@ -42,11 +30,6 @@ public class FirstTest {
 
 
 
-    @AfterMethod
-    public  void tearDown(){
-        driver.quit();
-
-    }
 
 }
 
